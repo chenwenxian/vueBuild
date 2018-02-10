@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title></title>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
+        <meta name="format-detection" content="telephone=no" />
+        
+        <link href="./static/css/index.css?c7ee6d4cba39dce58a04" rel="stylesheet"/>
+        
+        
+            <!--S pluginJs-->
+            
+            <script src="http://m.aipai.com/aipai_platform/mobile/common/dist/weixin/1.0.0/jweixin.js"></script>
+            
+            <!--E pluginJs-->
+        
+    </head>
+    <body>
+        <div id="root"></div>
+        
+        <script type="text/javascript">
+            /* phptal 定义全局变量 */
+            
+            var WinResourcesDomain = '${WinResourcesDomain}';
+            
+            var WinPageData = '${structure WinPageData}';
+            
+            var WinResourcesDirectory = (typeof WinResourcesDomain === 'undefined' || WinResourcesDomain.match(/\$/ig)) ? (location.host==="" ? "" : "http://"+location.host+"/") : WinResourcesDomain+((WinResourcesDomain.match(/\/$/ig)) ? '': '/')+"aipai_platform/vue/project1/about/dist/";
+
+            WinResourcesDomain = (typeof WinResourcesDomain === 'undefined' || WinResourcesDomain.match(/\$/ig)) ? "http://"+location.host+"/" : WinResourcesDomain+((WinResourcesDomain.match(/\/$/ig)) ? '': '/');
+        </script>
+
+        <!-- built files will be auto injected -->
+        
+        <script type="text/javascript" src="./static/js/manifest.js?8c4aca7b32d125f8a5b8"></script>
+        
+        <script type="text/javascript" src="./static/js/vendor.js?48284aa0dd9717492d4c"></script>
+        
+        <script type="text/javascript" src="./static/js/index.js?c7ee6d4cba39dce58a04"></script>
+        
+
+        
+        <!--mlog start-->
+        <script type="text/javascript">
+            
+            var ap_mlog_page = "mobile_other";
+            
+            var ap_mlog_track = function(){};
+        </script>
+         
+            <script src="http://mlog.aipai.com/apweb.min.js?20150806"></script>        
+          
+        <!--mlog end-->
+        <div style="display:none;">
+            <script src="http://w.cnzz.com/c.php?id=30071949" language="javascript"></script>
+            <script src="http://w.cnzz.com/c.php?id=30088961&l=3" language="javascript"></script>
+            
+        </div>
+    </body>
+</html>

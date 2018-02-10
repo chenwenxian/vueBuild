@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title><%=htmlWebpackPlugin.options.pageInfo.title%></title>
+        <meta name="keywords" content="<%=htmlWebpackPlugin.options.pageInfo.keywords%>"/>
+        <meta name="description" content="<%=htmlWebpackPlugin.options.pageInfo.description%>"/>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
+        <meta name="format-detection" content="telephone=no" />
+        <% for (var css in htmlWebpackPlugin.files.css) { %>
+        <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet"/>
+        <% } %>
+        <%if(htmlWebpackPlugin.options.pageInfo.pluginJs.length >0){%>
+            <!--S pluginJs-->
+            <%(htmlWebpackPlugin.options.pageInfo.pluginJs).map(function(pluginJs){%>
+            <script src="<%=pluginJs%>"></script>
+            <%})%>
+            <!--E pluginJs-->
+        <%}%>
+    </head>
+    <body>
+        <div id="root"></div>
+        
+        <script type="text/javascript">
+            /* phptal 定义全局变量 */
+            <%for(phptalVar in htmlWebpackPlugin.options.phptalVarData){%>
+            var <%=phptalVar%> = '<%=htmlWebpackPlugin.options.phptalVarData[phptalVar]%>';
+            <%}%>
+            var WinResourcesDirectory = (typeof WinResourcesDomain === 'undefined' || WinResourcesDomain.match(/\$/ig)) ? (location.host==="" ? "" : "http://"+location.host+"/") : WinResourcesDomain+((WinResourcesDomain.match(/\/$/ig)) ? '': '/')+"aipai_platform/vue/<%=htmlWebpackPlugin.options.directory%>/dist/";
+
+            WinResourcesDomain = (typeof WinResourcesDomain === 'undefined' || WinResourcesDomain.match(/\$/ig)) ? "http://"+location.host+"/" : WinResourcesDomain+((WinResourcesDomain.match(/\/$/ig)) ? '': '/');
+        </script>
+
+        <!-- built files will be auto injected -->
+        <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+        <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+        <% } %>
+
+        
+        <!--mlog start-->
+        <script type="text/javascript">
+            <%if(typeof htmlWebpackPlugin.options.pageInfo.mlog.pageType === 'string'){%>
+            var ap_mlog_page = "<%=htmlWebpackPlugin.options.pageInfo.mlog.pageType%>";
+            <%}else{%>
+            var ap_mlog_page = "mobile_other";
+            <%}%>
+            var ap_mlog_track = function(){};
+        </script>
+        <% if(htmlWebpackPlugin.options.directory.indexOf("lieyou")>=0){%>   
+            <script src="http://mlog.lieyou.com/apweb.min.js?20150806"></script>
+        <% }else{ %> 
+            <script src="http://mlog.aipai.com/apweb.min.js?20150806"></script>        
+        <%} %>  
+        <!--mlog end-->
+        <div style="display:none;">
+            <script src="http://w.cnzz.com/c.php?id=30071949" language="javascript"></script>
+            <script src="http://w.cnzz.com/c.php?id=30088961&l=3" language="javascript"></script>
+            <%if(htmlWebpackPlugin.options.pageInfo.pluginFooterJs.length >0){%>
+            <%(htmlWebpackPlugin.options.pageInfo.pluginFooterJs).map(function(pluginFooterJs){%>
+            <script src="<%=pluginFooterJs%>"></script>
+            <%})%>
+            <%}%>
+        </div>
+    </body>
+</html>
