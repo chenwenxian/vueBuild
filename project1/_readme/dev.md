@@ -74,3 +74,4 @@ this.$apm.wxShare(wxShareData);
 		text: '我是要复制的内容'
 	});
 ```
+### test
