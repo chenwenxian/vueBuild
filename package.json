@@ -2,7 +2,7 @@
   "name": "vue_build",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "余逸伟 <yuyiwei@aipai.com>",
+  "author": "陈文贤 <chenwenxian@aipai.com>",
   "private": true,
   "scripts": {
     "dev": "node build_v2/dev-server.js -m",
